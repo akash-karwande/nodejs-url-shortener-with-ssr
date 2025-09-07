@@ -1,5 +1,7 @@
 # URL Shortener (Node.js + Express + MongoDB + EJS)
 
+## readme generated using oracle code assist with cline
+
 A simple URL shortener with authentication, EJS views, and basic click analytics. Users can sign up, log in, generate short URLs, and view a table of all shortened URLs with click counts.
 
 - Runtime: Node.js + Express 5
