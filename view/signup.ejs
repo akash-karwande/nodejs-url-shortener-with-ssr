@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Create your account</h2>
+        <form action="/user/signup" method="post">
+            <label for="name"></label>
+            <input type="text" name="name" placeholder="firstname lastname">
+
+            <label for="email"></label>
+            <input type="text" name="email" placeholder="example@gmail.com">
+
+            <label for="role"></label>
+            <input type="text" name="role" placeholder="NORMAL OR ADMIN">
+
+            <label for="password"></label>
+            <input type="text" name="password" placeholder="123456">
+
+            <% if (msg) { %>
+                <p style="color: red;"><%= msg %></p>
+            <% } %>
+            <button>Signup</button>
+        </form>
+    </div>
+</body>
+</html>

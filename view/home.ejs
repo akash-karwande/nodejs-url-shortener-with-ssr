@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1> URL Shortener
+    </h1>
+    <p>Welcome <%= user.email  %> Role: <%= user.role  %></p>
+    <div class="conatiner">
+        <p>Enter your url to get the short of it</p>
+        <% if (locals.id) { %>
+            <p>URL generated: http://localhost:8000/url/<%= id %>
+            </p>
+            <% } %>
+                <form method="post" action="/url">
+                    <input type="text" placeholder="https://example.com" name="url">
+                    <button>Generate</button>
+                </form>
+    </div>
+    <div class="conatiner">
+        <table>
+            <tr>
+                <th>Sr.No</th>
+                <th>Short URL</th>
+                <th>Real URL</th>
+                <th>Total Clicks</th>
+                <th>Created At</th>
+            </tr>
+            <% allUrls.forEach(function(url, index){ %>
+                <tr>
+                    <td>
+                        <%= index + 1 %>
+                    </td>
+                    <td>http://localhost:8000/url/<%= url.shortId %>
+                    </td>
+                    <td>
+                        <%= url.redirectUrl %>
+                    </td>
+                    <td>
+                        <%= url.visitHistory.length %>
+                    </td>
+                    <td>
+                        <%= (new Date(url.createdAt)).toLocaleString() %>
+                    </td>
+                </tr>
+
+                <% }); %>
+        </table>
+    </div>
+</body>
+
+</html>
